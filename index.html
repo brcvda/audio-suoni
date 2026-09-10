@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,14 +28,14 @@
         .header{
             text-align:center;
             padding:15px 15px 20px;
-            background:white;
+            background:#ffffff;
         }
 
         .logo{
             width:90px;
             height:auto;
             display:block;
-            margin:0 auto 10px auto;
+            margin:0 auto 12px auto;
         }
 
         .title{
@@ -51,34 +50,34 @@
         }
 
         .container{
-            max-width:700px;
+            max-width:800px;
             margin:0 auto;
-            padding:20px 15px 160px;
+            padding:20px 15px 180px;
         }
 
         .track{
             width:100%;
+            border:none;
+            border-radius:20px;
 
             background:var(--orange);
             color:white;
 
-            border:none;
-            border-radius:20px;
+            padding:24px;
 
-            padding:26px 22px;
-
-            margin-bottom:18px;
-
-            font-size:1.35rem;
-            font-weight:700;
+            margin-bottom:16px;
 
             text-align:left;
+
+            font-size:1.15rem;
+            font-weight:700;
+            line-height:1.4;
 
             cursor:pointer;
 
             box-shadow:0 6px 14px rgba(0,0,0,.15);
 
-            transition:.2s;
+            transition:all .2s ease;
         }
 
         .track:hover{
@@ -90,8 +89,10 @@
         }
 
         .track-number{
+            display:inline-block;
+            min-width:36px;
             font-weight:900;
-            margin-right:12px;
+            color:white;
         }
 
         .player{
@@ -100,7 +101,7 @@
             right:0;
             bottom:0;
 
-            background:white;
+            background:#ffffff;
 
             padding:12px;
 
@@ -113,10 +114,27 @@
             text-align:center;
             font-weight:bold;
             margin-bottom:8px;
+            padding:0 10px;
         }
 
         audio{
             width:100%;
+        }
+
+        @media (max-width:768px){
+
+            .logo{
+                width:75px;
+            }
+
+            .title{
+                font-size:1.8rem;
+            }
+
+            .track{
+                padding:22px;
+                font-size:1.05rem;
+            }
         }
 
     </style>
@@ -126,9 +144,10 @@
 
     <header class="header">
 
-        <img src="logo.png"
-             alt="Logo"
-             class="logo">
+        <img
+            src="logo.png"
+            alt="Logo"
+            class="logo">
 
         <h1 class="title">SUONI DELLA MEMORIA</h1>
 
@@ -142,37 +161,46 @@
 
         <button
             class="track"
-            onclick="playTrack('audio/01_Scanner-beep.mp3','Scanner Beep')">
+            onclick="playTrack('audio/01_Scanner-beep.mp3','Il caratteristico bip squillante del lettore barcode ottico al banco prestiti')">
 
             <span class="track-number">01</span>
-            Scanner Beep
+            Il caratteristico "bip" squillante del lettore barcode ottico al banco prestiti
 
         </button>
 
         <button
             class="track"
-            onclick="playTrack('audio/02_vinyl-crackles.wav','Vinyl Crackles')">
+            onclick="playTrack('audio/02_vinyl-crackles.wav','Il fruscio del solco iniziale di un 33 giri sul giradischi')">
 
             <span class="track-number">02</span>
-            Vinyl Crackles
+            Il fruscio del solco iniziale di un 33 giri sul giradischi
 
         </button>
 
         <button
             class="track"
-            onclick="playTrack('audio/03_CaricatoreDiapositive.wav','Caricatore Diapositive')">
+            onclick="playTrack('audio/03_CaricatoreDiapositive.wav','Lo scatto secco del caricatore rotante Kodak Ektapro')">
 
             <span class="track-number">03</span>
-            Caricatore Diapositive
+            Lo scatto secco del caricatore rotante Kodak Ektapro
 
         </button>
 
         <button
             class="track"
-            onclick="playTrack('audio/04_dial-up-modem-connecting-to-the-internet.mp3','Dial-Up Modem')">
+            onclick="playTrack('audio/04_dial-up-modem-connecting-to-the-internet.mp3','La sequenza di negoziazione e sibilo del modem USRobotics a 28.800 bps')">
 
             <span class="track-number">04</span>
-            Dial-Up Modem
+            La sequenza di negoziazione e sibilo del modem USRobotics a 28.800 bps
+
+        </button>
+
+        <button
+            class="track"
+            onclick="playTrack('audio/05_braille-printer.mp3','La sequenza battente dei punzoni della stampante Braille')">
+
+            <span class="track-number">05</span>
+            La sequenza battente dei punzoni della stampante Braille
 
         </button>
 
@@ -184,7 +212,9 @@
             Nessuna traccia selezionata
         </div>
 
-        <audio id="audioPlayer" controls></audio>
+        <audio id="audioPlayer" controls>
+            Il browser non supporta l'audio.
+        </audio>
 
     </div>
 
@@ -209,5 +239,4 @@
     </script>
 
 </body>
-
 </html>
