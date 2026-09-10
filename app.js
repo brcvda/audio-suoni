@@ -2,7 +2,11 @@ const player = document.getElementById("audioPlayer");
 const title = document.getElementById("track-title");
 
 function playTrack(url, nome) {
-    player.src = url;
     title.textContent = nome;
-    player.play();
+    player.src = url;
+    player.load();
+
+    player.play().catch(error => {
+        console.error("Errore riproduzione:", error);
+    });
 }
