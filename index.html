@@ -6,6 +6,19 @@
 
     <title>Suoni della Memoria</title>
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4K3XRX8V4K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-4K3XRX8V4K');
+    </script>
+
     <style>
 
         :root{
@@ -59,24 +72,16 @@
             width:100%;
             border:none;
             border-radius:20px;
-
             background:var(--orange);
             color:white;
-
             padding:24px;
-
             margin-bottom:16px;
-
             text-align:left;
-
             font-size:1.15rem;
             font-weight:700;
             line-height:1.4;
-
             cursor:pointer;
-
             box-shadow:0 6px 14px rgba(0,0,0,.15);
-
             transition:all .2s ease;
         }
 
@@ -100,13 +105,9 @@
             left:0;
             right:0;
             bottom:0;
-
             background:#ffffff;
-
             padding:12px;
-
             border-top:4px solid var(--orange);
-
             box-shadow:0 -3px 12px rgba(0,0,0,.15);
         }
 
@@ -163,7 +164,7 @@
             class="track"
             onclick="playTrack('audio/Introduzione.mp3','Benvenuto')">
 
-            <span class="track-number"></span>
+            <span class="track-number">00</span>
             Benvenuto
 
         </button>
@@ -239,6 +240,12 @@
             player.src = url;
 
             player.load();
+
+            if (typeof gtag === "function") {
+                gtag("event", "play_audio", {
+                    audio_title: title
+                });
+            }
 
             player.play().catch(error => {
                 console.error(error);
